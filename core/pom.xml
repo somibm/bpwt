@@ -27,6 +27,11 @@
     <packaging>bundle</packaging>
     <name>bpwt - Core</name>
     <description>Core bundle for bpwt</description>
+    
+     <properties>
+    	 <sonar.projectKey>com.ibm:bpwt.core:somibm_bpwt</sonar.projectKey>
+    </properties>
+    
     <build>
         <plugins>
             <plugin>

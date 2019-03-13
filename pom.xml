@@ -310,6 +310,13 @@
                         </lifecycleMappingMetadata>
                     </configuration>
                 </plugin>
+                
+                <!-- Sonar Plugin -->
+                <plugin>
+			        <groupId>org.sonarsource.scanner.maven</groupId>
+			        <artifactId>sonar-maven-plugin</artifactId>
+			        <version>3.5.0.1254</version>
+		      	</plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -476,6 +483,25 @@
                 </pluginManagement>
             </build>
         </profile>
+        
+        <!-- Sonar Verify Profile -->
+        <profile>
+        	<id>sonar</id>
+        	<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!--
+				<sonar.jdbc.url>jdbc:postgresql://localhost/sonar</sonar.jdbc.url>
+				<sonar.jdbc.driver>org.postgresql.Driver</sonar.jdbc.driver>
+				<sonar.jdbc.username>user</sonar.jdbc.username>
+				<sonar.jdbc.password>password</sonar.jdbc.password>
+				-->
+				
+				<!-- SERVER ON A REMOTE HOST -->
+				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+			</properties>
+		</profile>
 
     </profiles>
 

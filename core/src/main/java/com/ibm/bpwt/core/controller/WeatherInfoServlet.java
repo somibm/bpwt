@@ -59,6 +59,10 @@ public class WeatherInfoServlet extends SlingAllMethodsServlet {
     */
     private transient WeatherProcessorBAO weatherProcessor = new WeatherProcessorBAO();
 
+    /** Default COnstructor */
+    public WeatherInfoServlet() {
+    }
+
    /**
     * DI Technique - Constructor-Based Dependency Injection
     * @param testLocation String

@@ -3,9 +3,9 @@
 		data-sly-call="${clientlib.all@categories='clientlib.weather'}" />
 
 <!--  Define Authorable Headline -->
-<h2 data-sly-test="${properties.title}" class="headline">
+<h1 data-sly-test="${properties.title}" class="headline">
 	${properties.title @ context='html'}
-</h2>
+</h1>
 
 <br/><br/>
 
@@ -16,7 +16,7 @@
 </div>
 
 <!--  Display Status Message in this Div -->
-<div id="status-div"></div>
+<div class="status-div"></div>
 
 <!-- Display Weather Information from External API -->
-<div id="weather-info"></div>
+<div class="weather-info"></div>
