@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fileset-config file-format-version="1.2.0" simple-config="true" sync-formatter="false">
+  <local-check-config name="BP_Checkstyle_Rules" location="C:\Som\Apps\Workspace_Photon\git\bpwt\build-tools\bpwt-checkstyle-rules.xml" type="external" description="BP Checkstyle Rules - Weather Tracker">
+    <additional-data name="protect-config-file" value="true"/>
+  </local-check-config>
+  <fileset name="all" enabled="true" check-config-name="BP_Checkstyle_Rules" local="true">
+    <file-match-pattern match-pattern="." include-pattern="true"/>
+  </fileset>
+</fileset-config>

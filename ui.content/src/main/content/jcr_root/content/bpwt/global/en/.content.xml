@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/bpwt"
+        cq:isLanguageRoot="true"
+        cq:lastModified="{Date}2018-11-28T21:50:27.756+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2019-03-13T12:00:21.855+05:30"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:template="/apps/bpwt/templates/page-home"
+        jcr:description="Global English"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:language="en"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="English"
+        jcr:uuid="e545f452-420e-43e4-8a9c-6e20fd62fc4f"
+        sling:resourceType="bpwt/components/structure/home"
+        navTitle="English"
+        pageTitle="English"
+        subtitle="English"/>
+    <home/>
+</jcr:root>

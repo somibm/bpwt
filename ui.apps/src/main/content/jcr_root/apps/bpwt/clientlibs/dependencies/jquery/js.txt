@@ -1,0 +1,6 @@
+#base=js
+jquery-3.3.1.min.js
+jquery-ui.min.js
+jquery.counterup.js
+jquery.fancybox.pack.js
+jquery.mixitup.js

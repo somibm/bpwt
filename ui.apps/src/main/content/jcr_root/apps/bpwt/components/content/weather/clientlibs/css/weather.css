@@ -1,0 +1,38 @@
+ul.weather-list {
+    list-style: none;
+    padding-left: 0px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #000;
+}
+
+ul.weather-list li {
+    margin: 5px 20px 20px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+ul.weather-list li:last-child {
+    border-bottom: 0px solid #eee;
+}
+
+ul.weather-list li a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+ul.weather-list li a:hover {
+    text-decoration: none;
+}
+
+ul.weather-list li a h4:hover {
+    text-decoration: underline;
+}
+
+.weather {
+	padding-left: 300px;
+}
+
+.weather-title {
+	padding-top: 100px;
+	text-align: left;
+}

@@ -1,0 +1,22 @@
+<!-- Load Component level Client Library -->
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" 
+		data-sly-call="${clientlib.all@categories='clientlib.weather'}" />
+
+<!--  Define Authorable Headline -->
+<h2 data-sly-test="${properties.title}" class="headline">
+	${properties.title @ context='html'}
+</h2>
+
+<br/><br/>
+
+<div class="location">
+	Please type in location:
+	<input type=text" class="location-name" /> &nbsp;&nbsp;
+	<input type="button" id="fetch-weather-info" value="Search"/>
+</div>
+
+<!--  Display Status Message in this Div -->
+<div id="status-div"></div>
+
+<!-- Display Weather Information from External API -->
+<div id="weather-info"></div>
