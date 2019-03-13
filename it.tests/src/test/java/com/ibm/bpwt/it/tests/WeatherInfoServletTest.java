@@ -49,7 +49,7 @@ public class WeatherInfoServletTest {
      * Preparation for running the check logout Test
      */
     @BeforeEach
-    void init() {
+    public void init() {
 
         // AEM MOCK Request and Response Objects
         request             = context.request();

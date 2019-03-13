@@ -1,2 +1,0 @@
-#base=css
-bootstrap-validator.min.css

@@ -42,10 +42,6 @@
         <tag>HEAD</tag>
     </scm-->
 
-    <properties>
-        <junit.version>4.8.2</junit.version>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
