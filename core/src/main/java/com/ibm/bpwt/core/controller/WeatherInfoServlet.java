@@ -62,7 +62,7 @@ public class WeatherInfoServlet extends SlingAllMethodsServlet {
     /** Default COnstructor */
     public WeatherInfoServlet() {
     }
-    
+
    /**
     * DI Technique - Constructor-Based Dependency Injection
     * @param testLocation String
