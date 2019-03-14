@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+	jcr:language="en"
+	jcr:mixinTypes="[mix:language]" jcr:primaryType="nt:folder">
+	
+	<bpwt_search_lbl
+		jcr:mixinTypes="[sling:Message]"
+		jcr:primaryType="nt:folder"
+		sling:key="Please type in location to view Weather Information"
+		sling:message="Please type in location to view Weather Information: " />
+	
+	<bpwt_search_btn
+		jcr:mixinTypes="[sling:Message]"
+		jcr:primaryType="nt:folder"
+		sling:key="Search"
+		sling:message="Search" />
+
+</jcr:root>

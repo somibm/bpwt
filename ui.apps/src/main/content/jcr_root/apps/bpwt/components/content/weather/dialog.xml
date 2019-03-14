@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Dialog"
-    title="Weather App Configuration"
+    title="Weather Tracker"
     xtype="dialog">
     <items
         jcr:primaryType="cq:Widget"
@@ -9,11 +9,11 @@
         <items jcr:primaryType="cq:WidgetCollection">
             <tab1
                 jcr:primaryType="cq:Panel"
-                title="Weather App Configurations">
+                title="Weather Tracker">
                 <items jcr:primaryType="cq:WidgetCollection">
                     <tittle
                         jcr:primaryType="cq:Widget"
-                        fieldLabel="Weather App Title"
+                        fieldLabel="Weather Tracker Title"
                         name="./title"
                         xtype="textfield"/>
                 </items>
