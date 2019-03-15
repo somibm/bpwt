@@ -35,13 +35,6 @@
     <name>bpwt - Integration Tests Bundles</name>
     <description>Bundles for Integration Tests for bpwt</description>
 
-    <!-- <scm>
-        <connection></connection>
-        <developerConnection></developerConnection>
-        <url></url>
-        <tag>HEAD</tag>
-    </scm-->
-
     <build>
         <plugins>
             <plugin>

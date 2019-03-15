@@ -70,7 +70,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.1.0</version>
             </plugin>
             <!-- Maven Enforcer Plugin -->
             <plugin>
@@ -101,22 +101,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
-            <!-- Maven IntelliJ IDEA Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-idea-plugin</artifactId>
-                <version>2.2.1</version>
-                <configuration>
-                    <jdkLevel>1.8</jdkLevel>
-                    <linkModules>true</linkModules>
-                    <downloadSources>true</downloadSources>
-                </configuration>
-            </plugin>
+            </plugin>           
             <!-- Maven Eclipse Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -141,30 +131,28 @@
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>3.0.2</version>
                 </plugin>
-                <!-- Maven Compiler Plugin -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.1</version>
-                </plugin>
                 <!-- Maven Installer Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
                     <version>2.5.2</version>
                 </plugin>
+                
                 <!-- Maven Surefire Plugin -->
+                <!--
+                	Configure the Maven Surefire plugin to run JUnit4 test classes
+                	using the new JUnit platform launcher
+                -->
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.20</version>
-                </plugin>
-                <!-- Maven Failsafe Plugin -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>2.20</version>
-                </plugin>
+		            <artifactId>maven-surefire-plugin</artifactId>
+		            <version>2.22.0</version>
+		        </plugin>
+		        <!-- Maven Failsafe Plugin --> 
+		        <plugin>
+		            <artifactId>maven-failsafe-plugin</artifactId>
+		            <version>2.22.0</version>
+		        </plugin>
+                
                 <!-- Maven Deploy Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -223,7 +211,6 @@
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
                     <version>4.1.0</version>
-                    <inherited>true</inherited>
                 </plugin>
                 <!-- Maven Enforcer Plugin -->
                 <plugin>
@@ -237,6 +224,12 @@
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
+                <!-- Java Code Coverage Plugin (JaCoCo) on Sonar -->
+                <plugin>
+				    <groupId>org.jacoco</groupId>
+				    <artifactId>jacoco-maven-plugin</artifactId>
+				    <version>0.8.3</version>
+                </plugin>                
                 <!-- Build Helper Maven Plugin -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
