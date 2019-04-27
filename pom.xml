@@ -50,10 +50,18 @@
 	    <!-- Sonar -->
 	    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 	    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+	    
+	    <!--
+	    JaCoCo 1.0.1 – Oct 11, 2018 – SonarQube 6.7+ (Compatible with LTS)
+	    This plugin (provided by default with SonarQube 7.4+) allows you to load the JaCoCo data
+	    from its XML format for all the languages for which you can generate a JaCoCo report.
+	    <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../target/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+	    -->
 	    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
+	    
 	    <sonar.language>java</sonar.language>
 	    <sonar.exclusions>generated-sources/**/*</sonar.exclusions>
-	    <sonar.coverage.exclusions>ui.apps/**/*</sonar.coverage.exclusions>
+	    <sonar.coverage.exclusions>ui.apps/**/*, ui.content/**/*</sonar.coverage.exclusions>
     </properties>
 
     <build>        
