@@ -45,7 +45,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         
         <!-- JaCoCo -->
-        <jacoco.percentage.instruction>98%</jacoco.percentage.instruction>
+        <jacoco.percentage.instruction>0.98</jacoco.percentage.instruction>
 
 	    <!-- Sonar -->
 	    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
@@ -272,7 +272,6 @@
 	            </configuration>
 	            <executions>
 	                <execution>
-	                    <id>prepare-agent</id>
 	                    <goals>
 	                        <goal>prepare-agent</goal>
 	                    </goals>
@@ -284,8 +283,17 @@
 			            </configuration>
 	                </execution>
 	                <execution>
+						<id>jacoco-report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${sonar.jacoco.reportPaths</outputDirectory>
+						</configuration>
+					</execution>
+	                <execution>
 	                    <id>check</id>
-	                    <phase>verify</phase>
 	                    <goals>
 	                    	<goal>check</goal>
 	                    </goals>
@@ -293,19 +301,17 @@
 	                    	<dataFile>${sonar.jacoco.reportPaths}</dataFile>
 	                        <rules>
 							  <rule>
-								<element>BUNDLE</element>
+								<element>PACKAGE</element>
 							    <limits>
-							      	<limit implementation="org.jacoco.report.check.Limit">
-								        <counter>INSTRUCTION</counter>
-								        <value>COVEREDRATIO</value>
-								        <minimum>0.99</minimum>
-							      	</limit>
 							      	<limit>
-										<counter>COMPLEXITY</counter>
-										<value>COVEREDRATIO</value>
-										<minimum>0.5</minimum>
-									</limit>
+								        <counter>LINE</counter>
+								        <value>COVEREDRATIO</value>
+								        <minimum>${jacoco.percentage.instruction}</minimum>
+							      	</limit>
 							    </limits>
+					            <excludes>
+					               <exclude>com.ibm.bpwt.it.tests.*</exclude>
+					            </excludes>
 							  </rule>
 							</rules>
 	                    </configuration>
