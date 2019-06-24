@@ -267,6 +267,9 @@
 	                <destFile>${sonar.jacoco.reportPaths}</destFile>
 	                <dataFile>${sonar.jacoco.reportPaths}</dataFile>
         			<append>true</append>
+        			<excludes>
+		              	<exclude>ui.apps/*.*</exclude>
+		            </excludes>
 	            </configuration>
 	            <executions>
 	                <execution>
