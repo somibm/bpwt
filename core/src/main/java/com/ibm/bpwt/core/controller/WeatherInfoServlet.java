@@ -14,6 +14,7 @@ import java.util.List;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
@@ -85,6 +86,9 @@ public class WeatherInfoServlet extends SlingAllMethodsServlet {
         } else {
             location = request.getParameter("loc").trim();
         }
+
+        // Fix for using Tainted User Input
+        location     = StringEscapeUtils.escapeHtml(location);
 
         // Get Weather Information data from External Source via API.
         List<WeatherInfoDAO> weatherInfoData = getWeatherInfo(location);

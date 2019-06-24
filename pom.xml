@@ -43,25 +43,21 @@
 		
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        
-        <!-- JaCoCo -->
-        <jacoco.percentage.instruction>0.98</jacoco.percentage.instruction>
 
 	    <!-- Sonar -->
 	    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 	    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-	    
-	    <!--
-	    JaCoCo 1.0.1 – Oct 11, 2018 – SonarQube 6.7+ (Compatible with LTS)
-	    This plugin (provided by default with SonarQube 7.4+) allows you to load the JaCoCo data
-	    from its XML format for all the languages for which you can generate a JaCoCo report.
-	    <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../target/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-	    -->
 	    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
 	    
 	    <sonar.language>java</sonar.language>
-	    <sonar.exclusions>generated-sources/**/*</sonar.exclusions>
-	    <sonar.coverage.exclusions>ui.apps/**/*, ui.content/**/*</sonar.coverage.exclusions>
+	    <sonar.exclusions>
+	    	ui.apps/**/*.css, 
+	    	ui.apps/**/dependencies/**/*.js
+	    </sonar.exclusions>
+	    <sonar.coverage.exclusions>
+	    	ui.apps/**/*, 
+	    	ui.content/**/*
+	    </sonar.coverage.exclusions>
     </properties>
 
     <build>        
@@ -167,30 +163,31 @@
         </pluginManagement>
         
         <plugins>
-        	 <!-- Maven Surefire Plugin -->
-             <!--
+        	<!-- Maven Surefire Plugin -->
+            <!--
              	Configure the Maven Surefire plugin to run JUnit4 test classes
              	using the new JUnit platform launcher
-             -->
-		     <plugin>
+            -->
+		    <plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-surefire-plugin</artifactId>
-		        <version>2.22.0</version>
+		        <version>3.0.0-M3</version>
 		        <configuration>
 		            <!-- 
 		            	Setup the argLine and run the unit tests. 
 		            	** NOTE the "jacocArgeLine" property was configured the "prepare-agent" goal of JaCoCo
-		            	If you want to resolve the property value as late as possible (i.e. your dynamically alter this property value before reaching this phase
+		            	If you want to resolve the property value as late as possible 
+		            	(i.e. your dynamically alter this property value before reaching this phase
 		             	Maven gives you option to use @{jacocoArgLine} instead
 		             -->
-		            <argLine>${jacocoArgLine} -Xmx256m</argLine>
+		            <argLine>${jacocoArgLine} -Xmx1024m</argLine>
 		        </configuration>
 		    </plugin>		        
 		    <!-- Maven Failsafe Plugin -->
 		    <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.22.0</version>
+				<version>3.0.0-M3</version>
 			</plugin>
             <!-- Maven Release Plugin -->
             <plugin>
@@ -268,6 +265,7 @@
 	            <version>0.8.3</version>
 	            <configuration>
 	                <destFile>${sonar.jacoco.reportPaths}</destFile>
+	                <dataFile>${sonar.jacoco.reportPaths}</dataFile>
         			<append>true</append>
 	            </configuration>
 	            <executions>
@@ -281,40 +279,6 @@
 								<exclude>META-INF/**</exclude>
 							</excludes>
 			            </configuration>
-	                </execution>
-	                <execution>
-						<id>jacoco-report</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${sonar.jacoco.reportPaths</outputDirectory>
-						</configuration>
-					</execution>
-	                <execution>
-	                    <id>check</id>
-	                    <goals>
-	                    	<goal>check</goal>
-	                    </goals>
-	                    <configuration>
-	                    	<dataFile>${sonar.jacoco.reportPaths}</dataFile>
-	                        <rules>
-							  <rule>
-								<element>PACKAGE</element>
-							    <limits>
-							      	<limit>
-								        <counter>LINE</counter>
-								        <value>COVEREDRATIO</value>
-								        <minimum>${jacoco.percentage.instruction}</minimum>
-							      	</limit>
-							    </limits>
-					            <excludes>
-					               <exclude>com.ibm.bpwt.it.tests.*</exclude>
-					            </excludes>
-							  </rule>
-							</rules>
-	                    </configuration>
 	                </execution>
 	            </executions>
 	        </plugin>
